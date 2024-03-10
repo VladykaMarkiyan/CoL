@@ -1,4 +1,4 @@
-function Sun(sunId) {
+  function Sun(sunId) {
   let sun = document.getElementById(sunId);
   sun.classList.remove("sun_anime_reverse");
   sun.classList.add("sun_anime");
@@ -102,37 +102,60 @@ function Button4_night(button4Id) {
 }
 let isTrue = true;
 
-function Check() {
-  if (isTrue) {
-    Sun("Sun");
-    Cloud("Cloud");
-    Day("Day");
-    Night("Night");
-    Moon("Moon");
-    Photo_Day("Photo_day");
-    Button1_day("Button_1");
-    Button2_day("Button_2");
-    Button3_day("Button_3");
-    Button4_day("Button_4");
-    Settings_night("Settings");
-    Colors_night("Color");
-    Customise_night("Customise");
-  } else {
-    Moon_reverse("Moon");
-    Night_reverse("Night");
-    Day_reverse("Day");
-    Cloud_reverse("Cloud");
-    Sun_reverse("Sun");
-    Photo_Night("Photo_day");
-    Button1_night("Button_1");
-    Button2_night("Button_2");
-    Button3_night("Button_3");
-    Button4_night("Button_4");
-    Settings_day("Settings");
-    Colors_day("Color");
-    Customise_day("Customise");
-  }
-  isTrue = !isTrue;
+function Check_day() {
+  let display_day = document.getElementById("Day");
+  setTimeout(function () {
+    display_day.style.display = "none";
+  }, 200);
+  let display_night = document.getElementById("Night");
+  setTimeout(function () {
+    display_night.style.display = "block";
+  }, 200);
+
+  Sun("Sun");
+  Cloud("Cloud");
+  Day("Day");
+  Night("Night");
+  Moon("Moon");
+  Photo_Day("Photo_day");
+  Button1_day("Button_1");
+  Button2_day("Button_2");
+  Button3_day("Button_3");
+  Button4_day("Button_4");
+  Settings_night("Settings");
+  Colors_night("Color");
+  Customise_night("Customise");
+  Input_Day("button_words_night");
+  Language_night("language");
+  Glob_day("Glob");
+  Question_mark_day("Rules");
+}
+function Check_night() {
+  let display_day = document.getElementById("Day");
+  setTimeout(function () {
+    display_day.style.display = "block";
+  }, 200);
+  let display_night = document.getElementById("Night");
+  setTimeout(function () {
+    display_night.style.display = "none";
+  }, 200);
+  Moon_reverse("Moon");
+  Night_reverse("Night");
+  Day_reverse("Day");
+  Cloud_reverse("Cloud");
+  Sun_reverse("Sun");
+  Photo_Night("Photo_day");
+  Button1_night("Button_1");
+  Button2_night("Button_2");
+  Button3_night("Button_3");
+  Button4_night("Button_4");
+  Settings_day("Settings");
+  Colors_day("Color");
+  Customise_day("Customise");
+  Input_Night("button_words_day");
+  Language_day("language");
+  Glob_night("Glob");
+  Question_mark_night("Rules");
 }
 
 let audio = document.getElementById("Sound");
@@ -275,12 +298,12 @@ document.addEventListener("DOMContentLoaded", function () {
 ///////////////////Бордер налаштувань////////////////////////////
 
 function Settings_day() {
-  let set = document.getElementById("Settings");
+  let set = document.getElementById("Settings_bord");
   set.classList.remove("container_sittings_night");
   set.classList.add("container_sittings_day");
 }
 function Settings_night() {
-  let set = document.getElementById("Settings");
+  let set = document.getElementById("Settings_bord");
   set.classList.remove("container_sittings_day");
   set.classList.add("container_sittings_night");
 }
@@ -398,47 +421,107 @@ function Customise_night() {
   day.classList.add("container_customise_night");
 }
 
-const translations = {
-  uk: {
-    "Single": "Одиничний",
-  },
-  pl: {
-    "Single": "Pojedynczy",
-  }
-};
+function Input() {
+  let inputs = document.querySelectorAll(
+    ".button_words_day, .button_words_night"
+  ); // Отримати всі input-поля з класом button_words
 
-let currentLanguage = "en"; // Початкова мова
+  for (let i = 0; i < inputs.length; i++) {
+    let input = inputs[i];
 
+    input.addEventListener("keypress", function (event) {
+      let currentChar = event.key;
+      if (/^[A-Z\d !"#$%&'()*+,-./:;<=>?@[\\\]^_{|}~]$/i.test(currentChar)) {
+        input.value = "";
+        input.value = currentChar.toUpperCase();
+      } else {
+        input.value = "";
+      }
 
-document.getElementById("Eng").addEventListener("click", function() {
-  currentLanguage = "en";
-  updateTexts("Single");
-});
-
-document.getElementById("Ukr").addEventListener("click", function() {
-  currentLanguage = "uk";
-  updateTexts("Single");
-});
-
-document.getElementById("Pol").addEventListener("click", function() {
-  currentLanguage = "pl";
-  updateTexts("Single");
-});
-
-
-
-function updateTexts(key) {
-  const textContainer = document.getElementById("Photo_day");
-  if (translations[currentLanguage]) {
-    const textToDisplay = translations[currentLanguage][key];
-    textContainer.innerText = textToDisplay || key;
-  } else {
-    textContainer.innerText = key;
+      event.preventDefault();
+    });
   }
 }
 
+function Input_Day() {
+  let inputs = document.getElementsByClassName("button_words_day");
+  for (let i = 0; i < inputs.length; i++) {
+    let input = inputs[i];
+    input.style.color = "#BE6AFF";
+  }
+}
+function Input_Night() {
+  let inputs = document.getElementsByClassName("button_words_day");
+  for (let i = 0; i < inputs.length; i++) {
+    let input = inputs[i];
+    input.style.color = "#ff9500";
+  }
+}
 
+//МОВИ//
+function Language() {
+  let lang = document.getElementById("language");
+  let cont = document.getElementById("Settings");
+  cont.style.marginLeft = "11.85%";
+  lang.style.display = "flex";
+}
 
+function Language_none() {
+  let lang = document.getElementById("language");
+  let cont = document.getElementById("Settings");
+  cont.style.marginLeft = "0";
+  lang.style.display = "none";
+}
 
+let isLanguage = true;
 
-updateTexts("Single");
+function Close_language() {
+  let lang = document.getElementById("language");
+  let cont = document.getElementById("Settings");
+  lang.style.display = "none";
+  cont.style.marginLeft = "0";
+  isLanguage = !isLanguage;
+}
+document.addEventListener("keydown", function (event) {
+  let check = document.getElementById("language");
+  if (check.style.display != "none") {
+    if (event.key === "Escape") {
+      Close_language();
+    }
+  }
+});
+
+function Check_language() {
+  if (isLanguage) {
+    Language();
+  } else {
+    Language_none();
+  }
+  isLanguage = !isLanguage;
+}
+function Language_night() {
+  let lang = document.getElementById("language");
+  lang.style.backgroundColor = "#383838";
+}
+function Language_day() {
+  let lang = document.getElementById("language");
+  lang.style.backgroundColor = "#7c7c7c";
+}
+function Glob_day() {
+  let globe = document.getElementById("Glob");
+  globe.src = "./photo/globe_night.png";
+}
+function Glob_night() {
+  let globe = document.getElementById("Glob");
+  globe.src = "./photo/globe.png";
+}
+function Question_mark_day(){
+  let mark = document.getElementById("Rules");
+  mark.classList.remove("rules_day");
+  mark.classList.add("rules_night");
+}
+function Question_mark_night(){
+  let mark = document.getElementById("Rules");
+  mark.classList.remove("rules_night");
+  mark.classList.add("rules_day");
+}
