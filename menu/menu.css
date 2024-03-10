@@ -32,11 +32,8 @@ body {
 }
 .rules_day {
   display: flex;
-  position: relative;
-  justify-content: start;
   width: 80px;
   height: 80px;
-  right: 72%;
   border-radius: 50%;
   background-color: rgb(9, 83, 47);
   color: white;
@@ -52,11 +49,30 @@ body {
 .rules_day:hover {
   background-color: rgb(219, 193, 49);
 }
-
+.rules_night {
+  display: flex;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: rgb(138, 43, 226);
+  color: white;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 65px;
+  align-items: center;
+  justify-content: center;
+  border: 4px solid black;
+  cursor: pointer;
+  text-shadow: -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000,
+    3px 3px 0 #000, -3px 0 0 #000, 3px 0 0 #000, 0 -3px 0 #000, 0 3px 0 #000;
+}
 .rules_night:hover {
-  background-color: rgb(219, 193, 49);
+  background-color: rgb(36, 84, 216);
+  
 }
 
+.logo {
+  margin-top: -5%;
+}
 .button1_day {
   display: flex;
   justify-content: center;
@@ -236,15 +252,12 @@ body {
 
 /*?/////////////////////////////////daynight_button////////////////////////////////////////////////// */
 .day {
-  position: relative;
   width: 100px;
   height: 50px;
-  right: 41px;
   background-color: rgb(143, 231, 255);
   border-radius: 35px;
   border: 5px solid rgb(0, 143, 205);
   cursor: pointer;
-  z-index: 1;
 }
 .sun {
   position: absolute;
@@ -305,38 +318,24 @@ body {
     transform: translate(0);
     opacity: 1;
   }
-  70% {
-    opacity: 0;
+  90% {
+    opacity: 1;
   }
   100% {
     transform: translate(-48px);
-    opacity: 0;
+    opacity: 1;
   }
 }
 .sun_anime {
-  animation: sun_anime 0.8s;
+  animation: sun_anime 0.5s;
   animation-fill-mode: forwards;
 }
-@keyframes cloud_anime {
-  0% {
-    opacity: 1;
-  }
-  70% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-.cloud_anime {
-  animation: cloud_anime 0.8s;
-  animation-fill-mode: forwards;
-}
+
 @keyframes day_anime {
   0% {
     opacity: 1;
   }
-  70% {
+  80% {
     opacity: 0;
   }
   100% {
@@ -344,14 +343,11 @@ body {
   }
 }
 .day_anime {
-  animation: day_anime 0.8s;
+  animation: day_anime 0.7s;
   animation-fill-mode: forwards;
 }
 
 .night {
-  position: relative;
-  opacity: 0;
-  right: 150px;
   width: 100px;
   height: 50px;
   background-color: rgb(48, 29, 110);
@@ -451,15 +447,15 @@ body {
   }
 }
 .night_anime {
-  animation: night_anime 0.8s;
+  animation: night_anime 0.7s;
   animation-fill-mode: forwards;
 }
 @keyframes moon_anime {
   0% {
-    transform: translate(0);
+    transform: translate(-40px);
     opacity: 0;
   }
-  80% {
+  70% {
     opacity: 1;
   }
   100% {
@@ -468,17 +464,17 @@ body {
   }
 }
 .moon_anime {
-  animation: moon_anime 0.8s;
+  animation: moon_anime 0.2s;
   animation-fill-mode: forwards;
 }
 
 @keyframes moon_anime_reverse {
   0% {
-    transform: translate(-50px);
+    transform: translate(-48px);
     opacity: 1;
   }
-  70% {
-    opacity: 0;
+  90% {
+    opacity: 1;
   }
   100% {
     transform: translate(0);
@@ -486,7 +482,7 @@ body {
   }
 }
 .moon_anime_reverse {
-  animation: moon_anime_reverse 0.8s;
+  animation: moon_anime_reverse 0.5s;
   animation-fill-mode: forwards;
 }
 
@@ -494,7 +490,7 @@ body {
   0% {
     opacity: 1;
   }
-  70% {
+  90% {
     opacity: 0;
   }
   100% {
@@ -502,15 +498,15 @@ body {
   }
 }
 .night_anime_reverse {
-  animation: night_anime_reverse 0.8s;
+  animation: night_anime_reverse 0.5s;
   animation-fill-mode: forwards;
 }
 @keyframes sun_anime_reverse {
   0% {
-    transform: translate(-50px);
+    transform: translate(-30px);
     opacity: 0;
   }
-  80% {
+  70% {
     opacity: 1;
   }
   100% {
@@ -519,29 +515,14 @@ body {
   }
 }
 .sun_anime_reverse {
-  animation: sun_anime_reverse 0.8s;
-  animation-fill-mode: forwards;
-}
-@keyframes cloud_anime_reverse {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-.cloud_anime_reverse {
-  animation: cloud_anime_reverse 0.8s;
+  animation: sun_anime_reverse 0.2s;
   animation-fill-mode: forwards;
 }
 @keyframes day_anime_reverse {
   0% {
     opacity: 0;
   }
-  50% {
+  70% {
     opacity: 1;
   }
   100% {
@@ -556,7 +537,6 @@ body {
 .container_sittings {
   display: flex;
   flex-direction: column;
-
   align-items: center;
   background-color: #7c7c7c;
   border-radius: 15px;
@@ -572,7 +552,6 @@ body {
 .container_butback {
   display: flex;
   justify-content: left;
-  flex-direction: row;
   margin-bottom: -5px;
 }
 
@@ -624,17 +603,14 @@ body {
   margin-top: 4.3%;
 }
 
-/*?/////////////////////////////////daynight_button////////////////////////////////////////////////// */
+/*?/////////////////////////////////daynight_button////////////////////////////////////////////// */
 .day {
-  position: relative;
   width: 100px;
   height: 50px;
-  margin-left: 10px;
   background-color: rgb(143, 231, 255);
   border-radius: 35px;
   border: 5px solid rgb(0, 143, 205);
   cursor: pointer;
-  z-index: 1;
 }
 .sun {
   position: relative;
@@ -695,12 +671,10 @@ body {
   width: 100%;
   display: flex;
   margin-top: 90px;
-  justify-content: end;
+  justify-content: space-around;
 }
 
 .night {
-  position: relative;
-  right: 150px;
   width: 100px;
   height: 50px;
   background-color: rgb(48, 29, 110);
@@ -748,15 +722,6 @@ body {
   margin-bottom: -5px;
 }
 
-.button_back2 {
-  display: flex;
-  width: 55px;
-  height: 47px;
-  margin-left: -45%;
-  margin-top: 5%;
-  cursor: pointer;
-}
-
 .text_customise {
   display: flex;
   margin-left: 30%;
@@ -793,7 +758,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color:rgb(202, 233, 37);
+  background-color: rgb(202, 233, 37);
   border-top-left-radius: 7px;
   border-bottom-left-radius: 7px;
   border-top-right-radius: 7px;
@@ -802,6 +767,7 @@ body {
   width: 100px;
   height: 23px;
   border: 2.5px solid black;
+  cursor: pointer;
 }
 
 .strilka {
@@ -815,7 +781,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color:rgb(202, 233, 37);
+  background-color: rgb(202, 233, 37);
   border-top-left-radius: 7px;
   border-bottom-left-radius: 7px;
   border-top-right-radius: 7px;
@@ -824,6 +790,7 @@ body {
   width: 100px;
   height: 23px;
   border: 2.5px solid black;
+  cursor: pointer;
 }
 
 .text_for_gun {
@@ -837,40 +804,38 @@ body {
 
 .guns {
   display: flex;
-  margin-top: 8%;
+  justify-content: space-between;
+  margin-top: 4%;
 }
 
 .button_customise_3 {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color:rgb(202, 233, 37);
-  border-top-left-radius: 7px;
-  border-bottom-left-radius: 7px;
-  border-top-right-radius: 7px;
-  border-bottom-right-radius: 7px;
+  color: #000;
+  background-color: rgb(202, 233, 37);
+  border-radius: 7px;
+  border: 2.5px solid black;
   width: 65px;
   height: 23px;
-  border: 2.5px solid black;
-  margin-right: 230px;
+  cursor: pointer;
 }
-.photo_gun {
-  width: 25px;
-  height: 25px;
-  margin-bottom: 8%;
+
+.photo_guns {
+  margin: 0px 55px;
 }
+
 .button_customise_4 {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color:rgb(202, 233, 37);
-  border-top-left-radius: 7px;
-  border-bottom-left-radius: 7px;
-  border-top-right-radius: 7px;
-  border-bottom-right-radius: 7px;
-  width: 64px;
-  height: 23px;
+  color: #000;
+  background-color: rgb(202, 233, 37);
+  border-radius: 7px;
   border: 2.5px solid black;
+  width: 65px;
+  height: 23px;
+  cursor: pointer;
 }
 
 .container_customise_night {
@@ -886,7 +851,6 @@ body {
   font-size: 35px;
   font-family: kavoon;
 }
-
 
 /* це загальний клас для всього що є в налаштуваннях */
 .container_sittings_day {
@@ -958,14 +922,14 @@ body {
     2px 2px 0 #000, -3px 0 0 #000, 3px 0 0 #000, 0 -3px 0 #000, 0 3px 0 #000;
   margin-left: -35%;
 }
-/* для того щоб поєдати кнопку з текстом */
+/* для того щоб поєднати кнопку з текстом */
 .block_for_button {
   display: flex;
   text-align: center;
   margin-left: -40%;
 }
 /*  сама кнопка */
-.button_words {
+.button_words_day {
   display: flex;
   justify-content: center;
   text-align: center;
@@ -975,6 +939,14 @@ body {
   border-radius: 16px;
   background-color: #fff;
   margin: 2%;
+  font-size: 40px;
+  font-family: kavoon;
+  color: #ff9500;
+  user-select: none;
+  cursor: default;
+  caret-color: transparent;
+  text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000,
+    2px 2px 0 #000, -3px 0 0 #000, 3px 0 0 #000, 0 -3px 0 #000, 0 3px 0 #000;
 }
 /* текст для всього */
 .text_lineup {
@@ -1027,21 +999,18 @@ body {
   display: flex;
   margin-left: -20%;
 }
-.container_language{
+.photo_language {
   cursor: pointer;
   margin-top: 5%;
   margin-left: 34%;
 }
 .change_language {
-  position: absolute;
   display: flex;
   width: 174px;
   height: 162px;
   background-color: gray;
   border-radius: 15px;
   border: 4px solid black;
-  left: 70.3%;
-  top: 26.5%;
 }
 .flags_container {
   height: 100%;
@@ -1057,7 +1026,7 @@ body {
   border-radius: 50px;
   border: 2px solid black;
 }
-.ukrainian {
+.spanish {
   width: 45px;
   height: 45px;
   border-radius: 50px;
@@ -1081,4 +1050,45 @@ body {
   text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000,
     2px 2px 0 #000, -3px 0 0 #000, 3px 0 0 #000, 0 -3px 0 #000, 0 3px 0 #000;
   margin-left: 9px;
+}
+
+/* правила */
+.rules_container_day {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #7c7c7c;
+  border-radius: 15px;
+  border: 4px solid black;
+  width: 510px;
+  height: 420px;
+  border-bottom: 7px solid black;
+  font-size: 35px;
+  font-family: kavoon;
+}
+.settings-language {
+  display: flex;
+}
+.container_rules {
+  display: flex;
+  flex-direction: column;
+  background-color: #7c7c7c;
+  border-radius: 15px;
+  border: 4px solid black;
+  width: 586px;
+  height: 460px;
+  border-bottom: 7px solid black;
+  font-size: 35px;
+  font-family: kavoon;
+}
+.container_butback_rules {
+  display: flex;
+  justify-content: start;
+  margin: 1%;
+}
+.button_back_rules {
+  display: flex;
+  width: 55px;
+  height: 47px;
+  cursor: pointer;
 }
