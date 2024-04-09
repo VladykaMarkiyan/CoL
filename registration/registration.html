@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="registration.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="./registration.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code of Logic</title>
+</head>
+<body>
+    <div class="wrapper"  id = "LogIn">
+        <form action="">
+            <h1>Login</h1>
+            <div class="input-box">
+                <input type="text" placeholder="Username" required>
+                <i class='bx bxs-user'></i>
+            </div>
+            <div class="input-box">
+                <input type="password" placeholder="Password" required>
+                <i class='bx bxs-lock-alt'></i>
+            </div>
+            <div class="remember-forgot">
+                <label><input type="checkbox">Remember me</label>
+                <a href="#"onclick="Forgot()">Forgot password</a>
+            </div>
+
+            <button type="sumbit" class="btn" onclick="NextPage()">Login</button>
+
+            <div class="register-link">
+                <p>Don't have an account? <a
+                href="#" onclick="Reg()">Register</a></p>
+            </div>
+        </form>
+    </div>
+    <div class="wrapper" style="display:none" id="Create">
+        <form action="">
+            <h1>Create User</h1>
+            <div class="input-box">
+                <input type="text" placeholder="Username" required>
+                <i class='bx bxs-user'></i>
+            </div>
+            <div class="input-box">
+                <input type="password" placeholder="Password" required>
+                <i class='bx bxs-lock-alt'></i>
+            </div>
+            <div class="remember-forgot">
+                <label><input type="checkbox">Remember me</label>
+                <a href="#"></a>
+            </div>
+
+            <button type="sumbit" class="btn" onclick="NextPage()">Create User</button>
+
+            <div class="register-link">
+                <p>Already have an account? <a
+                href="#" onclick="LogIn()">Login</a></p>
+            </div>
+        </form>
+    </div>
+    <div class="email" id="Forgot" style="display:none">
+        <div class="input-box">
+            <input type="text" placeholder="Enter your email" required>
+            <div class="register-link">
+                <p><a href="#" onclick="Send()">Send code</a></p>
+                <p><a href="#" onclick="Back()" >Back</a></p>
+            </div>
+        </div>
+    </div>
+    <div class="suc" id="OK" style="display: none">
+        <h1>
+            Check your email and try again!
+        </h1>
+        <div class="register-link">
+            <p><a href="#" onclick="OK()">OK</a></p>
+        </div>
+    </div>
+</body>
+</html>
